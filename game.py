@@ -52,7 +52,7 @@ def draw_item_bag():
 player_img = pygame.image.load("images/Hero.png")
 player_img = pygame.transform.scale(player_img, (CELL_SIZE, CELL_SIZE))
 
-mob_img = pygame.image.load("images/egg/skeleton-animation_18.png")
+mob_img = pygame.image.load("images\pngwing.com.png")
 mob_img = pygame.transform.scale(mob_img, (CELL_SIZE, CELL_SIZE))
 
 wall_img = pygame.image.load("images/Wall.png")
@@ -96,7 +96,8 @@ class Mob(pygame.sprite.Sprite):
         self.rect.topleft = (x, y)
         self.move_timer = 0
 
-    def move_towards_player(self, player):
+    def move_towards_player(self, player): # movement before dijkstra
+        
         if pygame.time.get_ticks() - self.move_timer > 200:  # Adjust speed here (200 milliseconds = 0.2 seconds)
             dx = player.rect.x - self.rect.x
             dy = player.rect.y - self.rect.y
